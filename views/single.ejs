@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>single Details</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <%- include('./partials/nav.ejs')%>
+    <div class="detail">
+          <h3><%=result.name%></h3>
+          <p><%=result.author%></p>
+          <p><%=result.category%></p>
+          <p><%=result.description%></p>
+          <button data-doc="<%=result.id%>">Delete</button>
+          <script>
+                const button=document.querySelector('button');
+                button.addEventListener('click',(e)=>{
+                    // alert(button.dataset.doc);
+                    const endpoint=`/item/${button.dataset.doc}`;
+                    fetch(endpoint,{
+                        method: 'DELETE'
+                    })
+                    .then((result)=>{
+                            // return result.json()
+                             window.location.href = '/';
+                    })
+                    .catch((err)=>{
+                        console.log(err);
+                    })
+                })
+          </script>
+    </div>
+</body>
+</html>

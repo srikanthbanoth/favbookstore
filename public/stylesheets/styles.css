@@ -1,0 +1,11 @@
+a{
+    text-decoration: none;
+    font-family: sans-serif;
+    list-style: decimal;
+}
+li{
+    margin-bottom: 5px;
+}
+a:hover{
+    text-decoration: underline;
+}
